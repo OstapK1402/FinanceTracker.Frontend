@@ -1,0 +1,102 @@
+﻿@page "/dailyreport"
+@inject ReportService ReportService
+
+<h3 class="text-xxl-start">Daily Report</h3>
+
+<div class="container">
+    <form >
+        <div>
+            <input id="date" type="date" @bind="selectedDate" />
+            <button type="button" @onclick="SubmitReport">Submit</button>
+        </div>
+        @if (errorMessage != null)
+        {
+            <div class="alert alert-danger mt-2">@errorMessage</div>
+        }
+    </form>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">General information</h5>
+                    @if (report != null)
+                    {
+                        <p>Date: @report.ReportDate.Date.ToString("dd.MM.yyyy") </p>
+                        <p>Total Income: @report.TotalIncome</p>
+                        <p>Total Expenses: @report.TotalExpenses</p>
+                    }
+                    else
+                    {
+                        <p>No data available for the selected date.</p>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Financial operations per day</h5>
+                    @if(report != null)
+                    {
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Amount</th>
+                                    <th>Operation Date</th>
+                                    <th>Transactions Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var operation in report.Operations)
+                                {
+                                    <tr>
+                                        @if (operation.TransactionsType.IsIncome == true)
+                                        {
+                                            <td class="td-income">@operation.Amount</td>
+                                        }
+                                        else
+                                        {
+                                            <td class="td-notIncome">-@operation.Amount</td>
+                                        }
+                                        <td>@operation.OperationDate.ToString("dd.MM.yyyy")</td>
+                                        <td>@operation.TransactionsType.Name</td>
+                                        <td>@operation.Description</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+                    else
+                    {
+                        <p>No financial operations found for this date.</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@code {
+
+    private Task12.Data.DTO.DailyReport? report;
+    private DateTime selectedDate = DateTime.Today.Date;
+    private string errorMessage;
+
+
+    private async Task SubmitReport()
+    {
+        if (selectedDate == null)
+        {
+            errorMessage = "Please select a date.";
+        }
+        else
+        {
+            errorMessage = null;
+            report = await ReportService.GetReportByDate(selectedDate.Date);
+        }
+    }
+}

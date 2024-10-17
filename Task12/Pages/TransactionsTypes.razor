@@ -1,0 +1,293 @@
+﻿@page "/transactionstype"
+@inject IJSRuntime JS
+@inject TransactionTypeService TypeService
+
+<h3 class="text-xxl-start">Transactions Type</h3>
+
+@if (!string.IsNullOrEmpty(errorMessage))
+{
+    <div class="alert alert-danger">
+        @errorMessage
+    </div>
+}
+@if (createIsSuccess)
+{
+    <div class="alert alert-success" role="alert">
+        Transaction type was created successfully!
+    </div>
+}
+
+@if (updateIsSuccess)
+{
+    <div class="alert alert-success" role="alert">
+        Transaction type was updated successfully!
+    </div>
+}
+
+@if (types == null)
+{
+    <span>Loading...</span>
+}
+else if (types.Count() == 0)
+{
+    <span>No types found.</span>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Income</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var type in types)
+            {
+                <tr>
+                    <td>@type.Name</td>
+                    <td class="@(type.IsIncome ? "td-income" : "td-notIncome")">
+                        @type.IsIncome
+                    </td>
+                    <td>
+                        <div class="dropdown float-end">
+                            <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+                                    <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+                                </svg>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" @onclick="() => ShowUpdateModal(type.TypeId)" type="button" >Update</a></li>
+                                <li><a class="dropdown-item text-danger" @onclick="() => ConfirmDelete(type.TypeId)" type="button">Delete</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="d-flex justify-content-center">
+        <button type="button" class="btn btn-primary" @onclick="ShowCreateModal">
+            <i class="bi bi-plus"></i> Create Transactions Type
+        </button>
+    </div>
+
+     <!-- Modal -->
+    @if (isCreateModalVisible)
+    {
+        <div class="modal show d-block" tabindex="-1" role="dialog">
+            @if (!string.IsNullOrEmpty(modalErrorMessage))
+            {
+                <div class="alert alert-danger">
+                    @modalErrorMessage
+                </div>
+            }
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">New Transactions Type</h5>
+                        <button type="button" class="btn-close" @onclick="HideCreateModal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="typeName" class="form-label">Transactions Type Name</label>
+                                <input type="text" class="form-control" id="typeName" placeholder="Enter name" @bind="typeDTO.Name">
+                            </div>
+                            <div class="mb-3">
+                                <input name="isIncome" id="typeIncome" type="radio" value="true" @onchange="(e) => typeDTO.IsIncome = true"/>
+                                <label for="typeIncome" class="form-label">Income</label>
+                                <input name="isIncome" id="typeExpenses" type="radio" value="false" @onchange="(e) => typeDTO.IsIncome = false"/>
+                                <label for="typeExpenses" class="form-label">Expenses</label>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" @onclick="HideCreateModal">Cancel</button>
+                        <button type="button" class="btn btn-primary" @onclick="CreateType">Save Transaction Type</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-backdrop fade show"></div>
+    }
+
+    @if (isUpdateModalVisible)
+    {
+        <div class="modal show d-block" tabindex="-1" role="dialog">
+            @if (!string.IsNullOrEmpty(modalErrorMessage))
+            {
+                <div class="alert alert-danger">
+                    @modalErrorMessage
+                </div>
+            }
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Edit Transactions Type</h5>
+                        <button type="button" class="btn-close" @onclick="HideUpdateModal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="typeName" class="form-label">Transactions Type Name</label>
+                                <input type="text" class="form-control" id="typeName" placeholder="Enter name" @bind="typeDTO.Name">
+                            </div>
+                            <div class="mb-3">
+                                <input name="isIncome" id="typeIncome" type="radio" value="true" @onchange="(e) => typeDTO.IsIncome = true" checked="@typeDTO.IsIncome"/>
+                                <label for="typeIncome" class="form-label">Income</label>
+                                <input name="isIncome" id="typeExpenses" type="radio" value="false" @onchange="(e) => typeDTO.IsIncome = false" checked="!@typeDTO.IsIncome" />
+                                <label for="typeExpenses" class="form-label">Expenses</label>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" @onclick="HideUpdateModal">Cancel</button>
+                        <button type="button" class="btn btn-primary" @onclick="UpdateType">Save Transaction Type</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-backdrop fade show"></div>
+    }
+}
+
+@code {
+
+    private IEnumerable<TransactionsTypeDTO> types;
+    private TransactionsTypeDTO typeDTO = new TransactionsTypeDTO();
+    private bool isCreateModalVisible;
+    private bool isUpdateModalVisible;
+    private bool createIsSuccess;
+    private bool updateIsSuccess;
+    private string modalErrorMessage;
+    private string errorMessage;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            types = await TypeService.GetAllTransactionsTypes();
+        }
+        catch (HttpRequestException ex)
+        {
+            errorMessage = ex.Message;
+        }
+    }
+
+    private void ShowCreateModal()
+    {
+        isCreateModalVisible = true;
+        createIsSuccess = false;
+        modalErrorMessage = null;
+    }
+
+    private void HideCreateModal()
+    {
+        isCreateModalVisible = false;
+    }
+
+    private async Task CreateType()
+    {
+        try
+        {
+            var result = await TypeService.CreateTransactionsType(typeDTO);
+
+            HideCreateModal();
+            createIsSuccess = true;
+            modalErrorMessage = null;
+
+            types = await TypeService.GetAllTransactionsTypes();
+        }
+        catch (InvalidOperationException ex)
+        {
+            modalErrorMessage = ex.Message;
+            createIsSuccess = false;
+        }
+        catch (HttpRequestException ex)
+        {
+            modalErrorMessage = ex.Message;
+            createIsSuccess = false;
+        }
+    }
+
+    private async Task ShowUpdateModal(int id)
+    {
+        try
+        {
+            typeDTO = await TypeService.GetTransactionsTypeById(id);
+
+            isUpdateModalVisible = true;
+            updateIsSuccess = false;
+            modalErrorMessage = null;
+        }
+        catch (InvalidOperationException ex)
+        {
+            errorMessage = ex.Message;
+        }
+        catch (HttpRequestException ex)
+        {
+            errorMessage = ex.Message;
+        }
+    }
+
+    private void HideUpdateModal()
+    {
+        isUpdateModalVisible = false;
+    }
+
+    private async Task UpdateType()
+    {
+        try
+        {
+            var result = await TypeService.UpdateTransactionsType(typeDTO.TypeId, typeDTO);
+
+            HideUpdateModal();
+            updateIsSuccess = true;
+            modalErrorMessage = null;
+
+            types = await TypeService.GetAllTransactionsTypes();
+        }
+        catch (InvalidOperationException ex)
+        {
+            modalErrorMessage = ex.Message;
+            updateIsSuccess = false;
+        }
+        catch (HttpRequestException ex)
+        {
+            modalErrorMessage = ex.Message;
+            updateIsSuccess = false;
+        }
+    }
+
+    private async Task ConfirmDelete(int id)
+    {
+        bool isConfirmed = await JS.InvokeAsync<bool>("confirm", "Are you sure you want to delete this transaction type?");
+
+        if (isConfirmed)
+        {
+            await DeleteType(id);
+        }
+    }
+
+    private async Task DeleteType(int id)
+    {
+        try
+        {
+            var result = await TypeService.DeleteTransactionsType(id);
+
+            errorMessage = null;
+
+            types = await TypeService.GetAllTransactionsTypes();
+        }
+        catch (InvalidOperationException ex)
+        {
+            errorMessage = ex.Message;
+        }
+        catch (HttpRequestException ex)
+        {
+            errorMessage = ex.Message;
+        }
+    }
+}

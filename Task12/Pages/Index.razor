@@ -1,0 +1,334 @@
+﻿@page "/"
+@inject IJSRuntime JS
+@inject FinancialOperationService OperationService
+@inject TransactionTypeService TypeService;
+
+<PageTitle>Financial Operation</PageTitle>
+
+@if (!string.IsNullOrEmpty(errorMessage))
+{
+    <div class="alert alert-danger">
+        @errorMessage
+    </div>
+}
+@if (createIsSuccess)
+{
+    <div class="alert alert-success" role="alert">
+        Financial operation was created successfully!
+    </div>
+}
+
+@if (updateIsSuccess)
+{
+    <div class="alert alert-success" role="alert">
+        Financial operation was updated successfully!
+    </div>
+}
+
+@if (operations == null)
+{
+    <span>Loading...</span>
+}
+else if (operations.Count() == 0)
+{
+    <span>No types found.</span>
+}
+else
+{
+    <div>
+        <div class="d-flex justify-content-between">
+            <p>Financial Operations</p>
+            <button type="button" class="btn btn-primary" @onclick="ShowCreateModal">
+                <i class="bi bi-plus"></i> Add Operation
+            </button>
+        </div>
+        <div>
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Amount</th>
+                        <th>Operation Date</th>
+                        <th>Transactions Type</th>
+                        <th>Description</th>
+                        <th class="text-end">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var operation in operations)
+                    {
+                        <tr>
+                            <td>@operation.OperationId</td>
+                            @if (operation.TransactionsType.IsIncome == true)
+                            {
+                                <td class="td-income">@operation.Amount</td>
+                            }
+                            else
+                            {
+                                <td class="td-notIncome" >-@operation.Amount</td>
+                            }
+                            <td>@operation.OperationDate.ToString("dd.MM.yyyy")</td>
+                            <td>@operation.TransactionsType.Name</td>
+                            <td>@operation.Description</td>
+                            <td>
+                                <div class="dropdown float-end">
+                                    <button class="btn btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="bi bi-three-dots-vertical"></i>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" @onclick="() => ShowUpdateModal(operation.OperationId)" type="button">Update</a></li>
+                                        <li><a class="dropdown-item text-danger" @onclick="() => DeleteOperation(operation.OperationId)" type="button">Delete</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Modal -->
+    @if (isCreateModalVisible)
+    {
+        <div class="modal show d-block" tabindex="-1" role="dialog">
+            @if (!string.IsNullOrEmpty(modalErrorMessage))
+            {
+                <div class="alert alert-danger">
+                    @modalErrorMessage
+                </div>
+            }
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">New Financial Operation</h5>
+                        <button type="button" class="btn-close" @onclick="HideCreateModal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="amount" class="form-label">Amount</label>
+                                <input type="number" class="form-control" id="amount"  @bind="financialOperation.Amount">
+                            </div>
+                            <div class="mb-3">
+                                <label for="date" class="form-label">Date</label>
+                                <input type="date" class="form-control" id="date" @bind="financialOperation.OperationDate">
+                            </div>
+                            <div class="mb-3">
+                                <label for="type" class="form-label">Transactions Type</label>
+                                <select id="type" class="form-select" placeholder="Select Transactions Type" @bind="financialOperation.TransactionsTypeId">
+                                    @foreach (var item in types)
+                                    {
+                                        <option value="@item.TypeId">@item.Name</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="description" class="form-label">Description</label>
+                                <input type="text" class="form-control" id="description" placeholder="Enter description" @bind="financialOperation.Description">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" @onclick="HideCreateModal">Cancel</button>
+                        <button type="button" class="btn btn-primary" @onclick="CreateOperation">Save Transaction Type</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-backdrop fade show"></div>
+    }
+
+    @if (isUpdateModalVisible)
+    {
+        <div class="modal show d-block" tabindex="-1" role="dialog">
+            @if (!string.IsNullOrEmpty(modalErrorMessage))
+            {
+                <div class="alert alert-danger">
+                    @modalErrorMessage
+                </div>
+            }
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Edit  Financial Operation</h5>
+                        <button type="button" class="btn-close" @onclick="HideUpdateModal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="amount" class="form-label">Amount</label>
+                                <input type="number" class="form-control" id="amount" @bind="financialOperation.Amount">
+                            </div>
+                            <div class="mb-3">
+                                <label for="date" class="form-label">Date</label>
+                                <input type="date" class="form-control" id="date" @bind="financialOperation.OperationDate">
+                            </div>
+                            <div class="mb-3">
+                                <label for="type" class="form-label">Transactions Type</label>
+                                <select id="type" class="form-select" placeholder="Select Transactions Type" @bind="financialOperation.TransactionsTypeId">
+                                    @foreach (var item in types)
+                                    {
+                                        <option value="@item.TypeId">@item.Name</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="description" class="form-label">Description</label>
+                                <input type="text" class="form-control" id="description" placeholder="Enter description" @bind="financialOperation.Description">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" @onclick="HideUpdateModal">Cancel</button>
+                        <button type="button" class="btn btn-primary" @onclick="UpdateOperation">Save Transaction Type</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-backdrop fade show"></div>
+    }
+}
+
+@code {
+
+    IEnumerable<FinancialOperationDTO> operations;
+    IEnumerable<TransactionsTypeDTO> types;
+    FinancialOperationDTO financialOperation = new FinancialOperationDTO() { OperationDate = DateTime.Today.Date };
+    private bool isCreateModalVisible;
+    private bool isUpdateModalVisible;
+    private bool createIsSuccess;
+    private bool updateIsSuccess;
+    private string? modalErrorMessage;
+    private string? errorMessage;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            operations = await OperationService.GetAllFinancialOperations();
+        }
+        catch (HttpRequestException ex)
+        {
+            errorMessage = ex.Message;
+        }
+    }
+
+    private async Task ShowCreateModal()
+    {
+        types = await TypeService.GetAllTransactionsTypes();
+        isCreateModalVisible = true;
+        createIsSuccess = false;
+        modalErrorMessage = null;
+    }
+
+    private void HideCreateModal()
+    {
+        isCreateModalVisible = false;
+    }
+
+    private async Task CreateOperation()
+    {
+        try
+        {
+            financialOperation.TransactionsType = await TypeService.GetTransactionsTypeById(financialOperation.TransactionsTypeId);
+            var result = await OperationService.CreateFinancialOperation(financialOperation);
+
+            HideCreateModal();
+            createIsSuccess = true;
+            modalErrorMessage = null;
+
+            operations = await OperationService.GetAllFinancialOperations();
+        }
+        catch (InvalidOperationException ex)
+        {
+            modalErrorMessage = ex.Message;
+            createIsSuccess = false;
+        }
+        catch (HttpRequestException ex)
+        {
+            modalErrorMessage = ex.Message;
+            createIsSuccess = false;
+        }
+    }
+
+    private async Task ShowUpdateModal(int id)
+    {
+        try
+        {
+            types = await TypeService.GetAllTransactionsTypes();
+            financialOperation = await OperationService.GetFinancialOperationById(id);
+
+            isUpdateModalVisible = true;
+            updateIsSuccess = false;
+            modalErrorMessage = null;
+        }
+        catch (InvalidOperationException ex)
+        {
+            errorMessage = ex.Message;
+        }
+        catch (HttpRequestException ex)
+        {
+            errorMessage = ex.Message;
+        }
+    }
+
+    private void HideUpdateModal()
+    {
+        isUpdateModalVisible = false;
+    }
+
+    private async Task UpdateOperation()
+    {
+        try
+        {
+            var result = await OperationService.UpdateFinancialOperation(financialOperation.OperationId, financialOperation);
+
+            HideUpdateModal();
+            updateIsSuccess = true;
+            modalErrorMessage = null;
+
+             operations = await OperationService.GetAllFinancialOperations();
+        }
+        catch (InvalidOperationException ex)
+        {
+            modalErrorMessage = ex.Message;
+            updateIsSuccess = false;
+        }
+        catch (HttpRequestException ex)
+        {
+            modalErrorMessage = ex.Message;
+            updateIsSuccess = false;
+        }
+    }
+
+    private async Task ConfirmDelete(int id)
+    {
+        bool isConfirmed = await JS.InvokeAsync<bool>("confirm", "Are you sure you want to delete this financial operation?");
+
+        if (isConfirmed)
+        {
+            await DeleteOperation(id);
+        }
+    }
+
+    private async Task DeleteOperation(int id)
+    {
+        try
+        {
+            var result = await OperationService.DeleteFinancialOperation(id);
+
+            errorMessage = null;
+
+            operations = await OperationService.GetAllFinancialOperations();
+        }
+        catch (InvalidOperationException ex)
+        {
+            errorMessage = ex.Message;
+        }
+        catch (HttpRequestException ex)
+        {
+            errorMessage = ex.Message;
+        }
+    }
+}
+
