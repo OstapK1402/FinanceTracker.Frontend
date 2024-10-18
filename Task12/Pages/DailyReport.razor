@@ -82,7 +82,7 @@
 
 @code {
 
-    private Task12.Data.DTO.DailyReport? report;
+    private Task12.BLL.DTO.DailyReport? report;
     private DateTime selectedDate = DateTime.Today.Date;
     private string errorMessage;
 
@@ -96,7 +96,7 @@
         else
         {
             errorMessage = null;
-            report = await ReportService.GetReportByDate(selectedDate.Date);
+            report = await ReportService.GetReportByDate(selectedDate.Date, CancellationToken.None);
         }
     }
 }

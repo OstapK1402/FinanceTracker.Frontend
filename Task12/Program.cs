@@ -1,8 +1,7 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.Extensions.DependencyInjection;
-using Task12.Data;
-using Task12.Data.Service;
+using Task12.BLL.Extensions;
 
 namespace Task12
 {
@@ -15,13 +14,8 @@ namespace Task12
             // Add services to the container.
             builder.Services.AddRazorPages();
             builder.Services.AddServerSideBlazor();
-            builder.Services.AddSingleton<WeatherForecastService>();
 
-            var baseUrl = new Uri(builder.Configuration.GetSection("ApiSettings:BaseUrl").Get<string>());
-
-            builder.Services.AddHttpClient<TransactionTypeService>(client =>{ client.BaseAddress = baseUrl; });
-            builder.Services.AddHttpClient<FinancialOperationService>(client => { client.BaseAddress = baseUrl; });
-            builder.Services.AddHttpClient<ReportService>(client => { client.BaseAddress = baseUrl; });
+            builder.Services.AddBLLService(builder.Configuration);
 
             var app = builder.Build();
 

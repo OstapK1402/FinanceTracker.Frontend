@@ -32,3 +32,8 @@ C:\Users\ostap\source\repos\Task12\Task12\obj\Debug\net6.0\ref\Task12.dll
 C:\Users\ostap\source\repos\Task12\Task12\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\ostap\source\repos\Task12\Task12\obj\Debug\net6.0\Task12.csproj.AssemblyReference.cache
 C:\Users\ostap\source\repos\Task12\Task12\obj\Debug\net6.0\Task12.csproj.Up2Date
+C:\Users\ostap\source\repos\Task12\Task12\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\ostap\source\repos\Task12\Task12\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\ostap\source\repos\Task12\Task12\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+C:\Users\ostap\source\repos\Task12\Task12\bin\Debug\net6.0\Task12.BLL.dll
+C:\Users\ostap\source\repos\Task12\Task12\bin\Debug\net6.0\Task12.BLL.pdb

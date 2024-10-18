@@ -86,7 +86,7 @@
 
 @code {
 
-    private Task12.Data.DTO.PeriodReport? report;
+    private Task12.BLL.DTO.PeriodReport? report;
     private DateTime startDate = DateTime.Today.Date;
     private DateTime endDate = DateTime.Today.Date;
     private string errorMessage;
@@ -101,7 +101,7 @@
         else
         {
             errorMessage = null;
-            report = await ReportService.GetReportByPeriod(startDate.Date, endDate.Date);
+            report = await ReportService.GetReportByPeriod(startDate.Date, endDate.Date, CancellationToken.None);
         }
     }
 }

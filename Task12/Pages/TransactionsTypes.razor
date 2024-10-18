@@ -168,7 +168,7 @@ else
     {
         try
         {
-            types = await TypeService.GetAllTransactionsTypes();
+            types = await TypeService.GetAllTransactionsTypes(CancellationToken.None);
         }
         catch (HttpRequestException ex)
         {
@@ -192,13 +192,13 @@ else
     {
         try
         {
-            var result = await TypeService.CreateTransactionsType(typeDTO);
+            var result = await TypeService.CreateTransactionsType(typeDTO, CancellationToken.None);
 
             HideCreateModal();
             createIsSuccess = true;
             modalErrorMessage = null;
 
-            types = await TypeService.GetAllTransactionsTypes();
+            types = await TypeService.GetAllTransactionsTypes(CancellationToken.None);
         }
         catch (InvalidOperationException ex)
         {
@@ -216,7 +216,7 @@ else
     {
         try
         {
-            typeDTO = await TypeService.GetTransactionsTypeById(id);
+            typeDTO = await TypeService.GetTransactionsTypeById(id, CancellationToken.None);
 
             isUpdateModalVisible = true;
             updateIsSuccess = false;
@@ -241,13 +241,13 @@ else
     {
         try
         {
-            var result = await TypeService.UpdateTransactionsType(typeDTO.TypeId, typeDTO);
+            var result = await TypeService.UpdateTransactionsType(typeDTO.TypeId, typeDTO, CancellationToken.None);
 
             HideUpdateModal();
             updateIsSuccess = true;
             modalErrorMessage = null;
 
-            types = await TypeService.GetAllTransactionsTypes();
+            types = await TypeService.GetAllTransactionsTypes(CancellationToken.None);
         }
         catch (InvalidOperationException ex)
         {
@@ -275,11 +275,11 @@ else
     {
         try
         {
-            var result = await TypeService.DeleteTransactionsType(id);
+            var result = await TypeService.DeleteTransactionsType(id, CancellationToken.None);
 
             errorMessage = null;
 
-            types = await TypeService.GetAllTransactionsTypes();
+            types = await TypeService.GetAllTransactionsTypes(CancellationToken.None);
         }
         catch (InvalidOperationException ex)
         {
