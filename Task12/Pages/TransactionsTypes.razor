@@ -90,22 +90,31 @@ else
                         <button type="button" class="btn-close" @onclick="HideCreateModal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form>
+                        <EditForm Model="@typeDTO" OnValidSubmit="CreateType" >
+                            <DataAnnotationsValidator />
+                            <ValidationSummary />
                             <div class="mb-3">
                                 <label for="typeName" class="form-label">Transactions Type Name</label>
-                                <input type="text" class="form-control" id="typeName" placeholder="Enter name" @bind="typeDTO.Name">
+                                <InputText class="form-control" id="typeName" placeholder="Enter name" @bind-Value="typeDTO.Name" />
+                                <ValidationMessage For="@(() => typeDTO.Name)" />
                             </div>
                             <div class="mb-3">
-                                <input name="isIncome" id="typeIncome" type="radio" value="true" @onchange="(e) => typeDTO.IsIncome = true"/>
-                                <label for="typeIncome" class="form-label">Income</label>
-                                <input name="isIncome" id="typeExpenses" type="radio" value="false" @onchange="(e) => typeDTO.IsIncome = false"/>
-                                <label for="typeExpenses" class="form-label">Expenses</label>
+                                <InputRadioGroup @bind-Value="typeDTO.IsIncome" class="d-block">
+                                    <div class="form-check">
+                                        <InputRadio Value="true" class="form-check-input" id="typeIncome" />
+                                        <label for="typeIncome" class="form-check-label">Income</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <InputRadio Value="false" class="form-check-input" id="typeExpenses" />
+                                        <label for="typeExpenses" class="form-check-label">Expenses</label>
+                                    </div>
+                                </InputRadioGroup>
                             </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" @onclick="HideCreateModal">Cancel</button>
-                        <button type="button" class="btn btn-primary" @onclick="CreateType">Save Transaction Type</button>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" @onclick="HideCreateModal">Cancel</button>
+                                <button type="button" class="btn btn-primary" @onclick="CreateType">Save Transaction Type</button>
+                            </div>
+                        </EditForm>
                     </div>
                 </div>
             </div>

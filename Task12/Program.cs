@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.Extensions.DependencyInjection;
+using Task12.BLL.Exceptions;
 using Task12.BLL.Extensions;
 
 namespace Task12
@@ -18,6 +19,8 @@ namespace Task12
             builder.Services.AddBLLService(builder.Configuration);
 
             var app = builder.Build();
+
+            app.UseMiddleware<ExceptionHandlingMiddleware>();
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())

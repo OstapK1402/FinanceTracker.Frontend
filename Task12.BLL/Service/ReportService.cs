@@ -1,13 +1,14 @@
 ﻿using System.Net.Http.Json;
 using Task12.BLL.DTO;
+using Task12.BLL.IService;
 
 namespace Task12.BLL.Service
 {
-    public class ReportService
+    public class ReportService : IReportService
     {
         private readonly HttpClient _httpClient;
 
-        public ReportService(HttpClient httpClient)
+        public ReportService(HttpClient httpClient) 
         {
             _httpClient = httpClient;
         }

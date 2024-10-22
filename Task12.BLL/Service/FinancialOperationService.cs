@@ -2,10 +2,11 @@
 using System.Net.Http.Json;
 using System.Text;
 using Task12.BLL.DTO;
+using Task12.BLL.IService;
 
 namespace Task12.BLL.Service
 {
-    public class FinancialOperationService
+    public class FinancialOperationService : IFinancialOperationService
     {
         private readonly HttpClient _httpClient;
 

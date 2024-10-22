@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Task12.BLL\Task12.BLL.csproj" />
     <ProjectReference Include="..\Task12\Task12.csproj" />
   </ItemGroup>
 
