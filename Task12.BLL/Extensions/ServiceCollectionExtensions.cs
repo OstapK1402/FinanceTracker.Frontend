@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Task12.BLL.Helpers;
+using Task12.BLL.Interface;
 using Task12.BLL.IService;
 using Task12.BLL.Service;
 
@@ -12,8 +13,7 @@ namespace Task12.BLL.Extensions
         {
             var baseUrl = new Uri(configuration.GetSection("ApiSettings:BaseUrl").Value);
 
-            services.AddScoped<HttpResponseValidator>();
-
+            services.AddScoped<IHttpResponseValidator, HttpResponseValidator>();
             services.AddScoped<ITransactionTypeService, TransactionTypeService>();
             services.AddScoped<IReportService, ReportService>();
             services.AddScoped<IFinancialOperationService, FinancialOperationService>();

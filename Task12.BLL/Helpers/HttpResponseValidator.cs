@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Task12.BLL.Exceptions;
+using Task12.BLL.Interface;
 
 namespace Task12.BLL.Helpers
 {
-    public class HttpResponseValidator
+    public class HttpResponseValidator : IHttpResponseValidator
     {
         public async Task ValidateAsync(HttpResponseMessage response)
         {

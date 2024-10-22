@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Task12.BLL.Test")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+73699751fc44ead8cdfbab065eeb4c95902fb984")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4eb21221ace506be43e5b861e6280631caae877a")]
 [assembly: System.Reflection.AssemblyProductAttribute("Task12.BLL.Test")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Task12.BLL.Test")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json;
 using Task12.BLL.DTO;
 using Task12.BLL.Exceptions;
-using Task12.BLL.Helpers;
+using Task12.BLL.Interface;
 using Task12.BLL.Service;
 
 namespace Task12.BLL.Test.Service
@@ -15,7 +15,7 @@ namespace Task12.BLL.Test.Service
     {
         private CancellationToken token;
         private Mock<HttpMessageHandler> httpMessageHandler;
-        private Mock<HttpResponseValidator> responceValidator;
+        private Mock<IHttpResponseValidator> responseValidator;
         private HttpClient httpClient;
         private TransactionTypeService service;
 
@@ -24,12 +24,12 @@ namespace Task12.BLL.Test.Service
         {
             token = CancellationToken.None;
             httpMessageHandler = new Mock<HttpMessageHandler>();
-            responceValidator = new Mock<HttpResponseValidator>();
+            responseValidator = new Mock<IHttpResponseValidator>();
             httpClient = new HttpClient(httpMessageHandler.Object)
-            {
-                BaseAddress = new Uri("http://localhost")
-            };
-            service = new TransactionTypeService(httpClient, responceValidator.Object);
+                         {
+                            BaseAddress = new Uri("http://localhost")
+                         };
+            service = new TransactionTypeService(httpClient, responseValidator.Object);
         }
 
         [TestMethod]
@@ -64,32 +64,35 @@ namespace Task12.BLL.Test.Service
             Assert.AreEqual(result.Count(), transactionsTypes.Count());
         }
 
-        //[TestMethod]
-        //public async Task GetAllTransactionsTypes_ThrowHttpRequestException_ResponseIsInternalServerError()
-        //{
-        //    //arrange
-        //    var errorMessage = "Server error occurred";
-        //    var httpResponseMessage = new HttpResponseMessage
-        //    {
-        //        StatusCode = HttpStatusCode.BadGateway,
-        //        Content = new StringContent(errorMessage)
-        //    };
+        [TestMethod]
+        public async Task GetAllTransactionsTypes_ThrowHttpRequestException_ResponseIsInternalServerError()
+        {
+            //arrange
+            var errorMessage = "Server error occurred";
+            var httpResponseMessage = new HttpResponseMessage
+            {
+                StatusCode = HttpStatusCode.BadGateway,
+                Content = new StringContent(errorMessage)
+            };
 
-        //    httpMessageHandler.Protected()
-        //        .Setup<Task<HttpResponseMessage>>(
-        //            "SendAsync",
-        //            ItExpr.IsAny<HttpRequestMessage>(),
-        //            ItExpr.IsAny<CancellationToken>())
-        //        .ReturnsAsync(httpResponseMessage);
+            httpMessageHandler.Protected()
+                .Setup<Task<HttpResponseMessage>>(
+                    "SendAsync",
+                    ItExpr.IsAny<HttpRequestMessage>(),
+                    ItExpr.IsAny<CancellationToken>())
+                .ReturnsAsync(httpResponseMessage);
 
-        //    //act & assert
-        //    var exception = await Assert.ThrowsExceptionAsync<HttpRequestException>(
-        //        () => service.GetAllTransactionsTypes(token)
-        //    );
+            responseValidator.Setup(validator => validator.ValidateAsync(httpResponseMessage))
+                .ThrowsAsync(new HttpRequestException($"Error: 502, Message: {errorMessage}"));
 
-        //    Assert.IsTrue(exception.Message.Contains($"Error: 502, Message: {errorMessage}"));
-        //    Assert.IsTrue(exception.Message.Contains(errorMessage));
-        //}
+            //act & assert
+            var exception = await Assert.ThrowsExceptionAsync<HttpRequestException>(
+                () => service.GetAllTransactionsTypes(token)
+            );
+
+            Assert.IsTrue(exception.Message.Contains($"Error: 502, Message: {errorMessage}"));
+            Assert.IsTrue(exception.Message.Contains(errorMessage));
+        }
 
         [TestMethod]
         public async Task GetTransactionsTypeById_ReturnTransactionsType_ResponseIsSuccessful()
@@ -128,7 +131,7 @@ namespace Task12.BLL.Test.Service
         }
 
         [TestMethod]
-        public async Task GetTransactionsTypeById_ThrowInvalidOperationException_ResponseIsNotFound()
+        public async Task GetTransactionsTypeById_ThrowNotFoundException_ResponseIsNotFound()
         {
             //arrange
             int id = 1;
@@ -146,6 +149,10 @@ namespace Task12.BLL.Test.Service
                     ItExpr.IsAny<CancellationToken>())
                 .ReturnsAsync(httpResponseMessage);
 
+
+            responseValidator.Setup(validator => validator.ValidateAsync(httpResponseMessage))
+                .ThrowsAsync(new NotFoundException($"Not Found: {errorMessage}"));
+
             //act & assert
             var exception = await Assert.ThrowsExceptionAsync<NotFoundException>(
                 () => service.GetTransactionsTypeById(id, token)
@@ -154,33 +161,37 @@ namespace Task12.BLL.Test.Service
             Assert.AreEqual(exception.Message, $"Not Found: {errorMessage}");
         }
 
-        //[TestMethod]
-        //public async Task GetTransactionsTypeById_ThrowHttpRequestException_ResponseIsInternalServerError()
-        //{
-        //    //arrange
-        //    int id = 1;
-        //    var errorMessage = "Server error occurred";
-        //    var httpResponseMessage = new HttpResponseMessage
-        //    {
-        //        StatusCode = HttpStatusCode.BadGateway,
-        //        Content = new StringContent(errorMessage)
-        //    };
+        [TestMethod]
+        public async Task GetTransactionsTypeById_ThrowHttpRequestException_ResponseIsInternalServerError()
+        {
+            //arrange
+            int id = 1;
+            var errorMessage = "Server error occurred";
+            var httpResponseMessage = new HttpResponseMessage
+            {
+                StatusCode = HttpStatusCode.BadGateway,
+                Content = new StringContent(errorMessage)
+            };
 
-        //    httpMessageHandler.Protected()
-        //        .Setup<Task<HttpResponseMessage>>(
-        //            "SendAsync",
-        //            ItExpr.IsAny<HttpRequestMessage>(),
-        //            ItExpr.IsAny<CancellationToken>())
-        //        .ReturnsAsync(httpResponseMessage);
+            httpMessageHandler.Protected()
+                .Setup<Task<HttpResponseMessage>>(
+                    "SendAsync",
+                    ItExpr.IsAny<HttpRequestMessage>(),
+                    ItExpr.IsAny<CancellationToken>())
+                .ReturnsAsync(httpResponseMessage);
 
-        //    //act & assert
-        //    var exception = await Assert.ThrowsExceptionAsync<HttpRequestException>(
-        //        () => service.GetTransactionsTypeById(id, token)
-        //    );
 
-        //    Assert.IsTrue(exception.Message.Contains($"Error: 502, Message: {errorMessage}"));
-        //    Assert.IsTrue(exception.Message.Contains(errorMessage));
-        //}
+            responseValidator.Setup(validator => validator.ValidateAsync(httpResponseMessage))
+                .ThrowsAsync(new HttpRequestException($"Error: 502, Message: {errorMessage}"));
+
+            //act & assert
+            var exception = await Assert.ThrowsExceptionAsync<HttpRequestException>(
+                () => service.GetTransactionsTypeById(id, token)
+            );
+
+            Assert.IsTrue(exception.Message.Contains($"Error: 502, Message: {errorMessage}"));
+            Assert.IsTrue(exception.Message.Contains(errorMessage));
+        }
 
         [TestMethod]
         public async Task CreateTransactionsType_ReturnOk_ResponseIsSuccessful()
@@ -216,7 +227,7 @@ namespace Task12.BLL.Test.Service
         }
 
         [TestMethod]
-        public async Task CreateTransactionsType_ThrowInvalidOperationException_ResponseIsConflict()
+        public async Task CreateTransactionsType_ThrowConflictException_ResponseIsConflict()
         {
             //arrange
             var transactionsType = new TransactionsTypeDTO
@@ -240,6 +251,9 @@ namespace Task12.BLL.Test.Service
                     ItExpr.IsAny<CancellationToken>())
                 .ReturnsAsync(httpResponseMessage);
 
+            responseValidator.Setup(validator => validator.ValidateAsync(httpResponseMessage))
+                .ThrowsAsync(new ConflictException($"Conflict: {errorMessage}"));
+
             //act & assert
             var exception = await Assert.ThrowsExceptionAsync<ConflictException>(
                 () => service.CreateTransactionsType(transactionsType, token)
@@ -249,7 +263,7 @@ namespace Task12.BLL.Test.Service
         }
 
         [TestMethod]
-        public async Task CreateTransactionsType_ThrowInvalidOperationException_ResponseIsBadRequest()
+        public async Task CreateTransactionsType_ThrowBadRequestException_ResponseIsBadRequest()
         {
             //arrange
 
@@ -267,6 +281,9 @@ namespace Task12.BLL.Test.Service
                     ItExpr.IsAny<CancellationToken>())
                 .ReturnsAsync(httpResponseMessage);
 
+            responseValidator.Setup(validator => validator.ValidateAsync(httpResponseMessage))
+                .ThrowsAsync(new BadRequestException($"Bad Request: {errorMessage}")); 
+
             //act & assert
             var exception = await Assert.ThrowsExceptionAsync<BadRequestException>(
                 () => service.CreateTransactionsType(null, token)
@@ -276,7 +293,7 @@ namespace Task12.BLL.Test.Service
         }
 
         [TestMethod]
-        public async Task CreateTransactionsType_ThrowInvalidOperationException_ResponseIsInternalServerError()
+        public async Task CreateTransactionsType_ThrowInternalServerErrorException_ResponseIsInternalServerError()
         {
             //arrange
             var transactionsType = new TransactionsTypeDTO
@@ -299,6 +316,9 @@ namespace Task12.BLL.Test.Service
                     ItExpr.IsAny<HttpRequestMessage>(),
                     ItExpr.IsAny<CancellationToken>())
                 .ReturnsAsync(httpResponseMessage);
+
+            responseValidator.Setup(validator => validator.ValidateAsync(httpResponseMessage))
+                .ThrowsAsync(new InternalServerErrorException($"Internal Server Error: {errorMessage}"));
 
             //act & assert
             var exception = await Assert.ThrowsExceptionAsync<InternalServerErrorException>(
@@ -333,12 +353,15 @@ namespace Task12.BLL.Test.Service
                     ItExpr.IsAny<CancellationToken>())
                 .ReturnsAsync(httpResponseMessage);
 
+            responseValidator.Setup(validator => validator.ValidateAsync(httpResponseMessage))
+                .ThrowsAsync(new HttpRequestException($"Error: {errorMessage}"));
+
             //act & assert
             var exception = await Assert.ThrowsExceptionAsync<HttpRequestException>(
                 () => service.CreateTransactionsType(transactionsType, token)
             );
 
-            Assert.IsTrue(exception.Message.Contains("Error: ServiceUnavailable"));
+            Assert.IsTrue(exception.Message.Contains($"Error: {errorMessage}"));
             Assert.IsTrue(exception.Message.Contains(errorMessage));
         }
 
@@ -377,7 +400,7 @@ namespace Task12.BLL.Test.Service
         }
 
         [TestMethod]
-        public async Task UpdateTransactionsType_ThrowInvalidOperationException_ResponseIsNotFound()
+        public async Task UpdateTransactionsType_ThrowNotFoundException_ResponseIsNotFound()
         {
             //arrange
             int id = 1;
@@ -402,6 +425,9 @@ namespace Task12.BLL.Test.Service
                     ItExpr.IsAny<CancellationToken>())
                 .ReturnsAsync(httpResponseMessage);
 
+            responseValidator.Setup(validator => validator.ValidateAsync(httpResponseMessage))
+                    .ThrowsAsync(new NotFoundException($"Not Found: {errorMessage}"));
+
             //act & assert
             var exception = await Assert.ThrowsExceptionAsync<NotFoundException>(
                 () => service.UpdateTransactionsType(id, transactionsType, token)
@@ -411,7 +437,7 @@ namespace Task12.BLL.Test.Service
         }
 
         [TestMethod]
-        public async Task UpdateTransactionsType_ThrowInvalidOperationException_ResponseIsBadRequest()
+        public async Task UpdateTransactionsType_ThrowBadRequestException_ResponseIsBadRequest()
         {
             //arrange
             int id = 1;
@@ -430,6 +456,9 @@ namespace Task12.BLL.Test.Service
                     ItExpr.IsAny<CancellationToken>())
                 .ReturnsAsync(httpResponseMessage);
 
+            responseValidator.Setup(validator => validator.ValidateAsync(httpResponseMessage))
+                .ThrowsAsync(new BadRequestException($"Bad Request: {errorMessage}"));
+
             //act & assert
             var exception = await Assert.ThrowsExceptionAsync<BadRequestException>(
                 () => service.UpdateTransactionsType(id, null, token)
@@ -439,7 +468,7 @@ namespace Task12.BLL.Test.Service
         }
 
         [TestMethod]
-        public async Task UpdateTransactionsType_ThrowInvalidOperationException_ResponseIsInternalServerError()
+        public async Task UpdateTransactionsType_ThrowInternalServerErrorException_ResponseIsInternalServerError()
         {
             //arrange
             int id = 1;
@@ -463,6 +492,9 @@ namespace Task12.BLL.Test.Service
                     ItExpr.IsAny<HttpRequestMessage>(),
                     ItExpr.IsAny<CancellationToken>())
                 .ReturnsAsync(httpResponseMessage);
+
+            responseValidator.Setup(validator => validator.ValidateAsync(httpResponseMessage))
+                .ThrowsAsync(new InternalServerErrorException($"Internal Server Error: {errorMessage}"));
 
             //act & assert
             var exception = await Assert.ThrowsExceptionAsync<InternalServerErrorException>(
@@ -498,12 +530,15 @@ namespace Task12.BLL.Test.Service
                     ItExpr.IsAny<CancellationToken>())
                 .ReturnsAsync(httpResponseMessage);
 
+            responseValidator.Setup(validator => validator.ValidateAsync(httpResponseMessage))
+                .ThrowsAsync(new HttpRequestException($"Error: {errorMessage}"));
+
             //act & assert
             var exception = await Assert.ThrowsExceptionAsync<HttpRequestException>(
                 () => service.UpdateTransactionsType(id, transactionsType, token)
             );
 
-            Assert.IsTrue(exception.Message.Contains("Error: ServiceUnavailable"));
+            Assert.IsTrue(exception.Message.Contains($"Error: {errorMessage}"));
             Assert.IsTrue(exception.Message.Contains(errorMessage));
         }
 
@@ -536,7 +571,7 @@ namespace Task12.BLL.Test.Service
         }
 
         [TestMethod]
-        public async Task DeleteTransactionsType_ThrowInvalidOperationException_ResponseIsNotFound()
+        public async Task DeleteTransactionsType_ThrowNotFoundException_ResponseIsNotFound()
         {
             //arrange
             int id = 1;
@@ -555,6 +590,9 @@ namespace Task12.BLL.Test.Service
                     ItExpr.IsAny<CancellationToken>())
                 .ReturnsAsync(httpResponseMessage);
 
+            responseValidator.Setup(validator => validator.ValidateAsync(httpResponseMessage))
+                .ThrowsAsync(new NotFoundException($"Not Found: {errorMessage}"));
+
             //act & assert
             var exception = await Assert.ThrowsExceptionAsync<NotFoundException>(
                 () => service.DeleteTransactionsType(id, token)
@@ -564,7 +602,7 @@ namespace Task12.BLL.Test.Service
         }
 
         [TestMethod]
-        public async Task DeleteTransactionsType_ThrowInvalidOperationException_ResponseIsBadRequest()
+        public async Task DeleteTransactionsType_ThrowBadRequestException_ResponseIsBadRequest()
         {
             //arrange
             int id = 1;
@@ -583,6 +621,9 @@ namespace Task12.BLL.Test.Service
                     ItExpr.IsAny<CancellationToken>())
                 .ReturnsAsync(httpResponseMessage);
 
+            responseValidator.Setup(validator => validator.ValidateAsync(httpResponseMessage))
+                .ThrowsAsync(new BadRequestException($"Bad Request: {errorMessage}"));
+
             //act & assert
             var exception = await Assert.ThrowsExceptionAsync<BadRequestException>(
                 () => service.DeleteTransactionsType(id, token)
@@ -592,7 +633,7 @@ namespace Task12.BLL.Test.Service
         }
 
         [TestMethod]
-        public async Task DeleteTransactionsType_ThrowInvalidOperationException_ResponseIsInternalServerError()
+        public async Task DeleteTransactionsType_ThrowInternalServerErrorException_ResponseIsInternalServerError()
         {
             //arrange
             int id = 1;
@@ -610,6 +651,9 @@ namespace Task12.BLL.Test.Service
                     ItExpr.IsAny<HttpRequestMessage>(),
                     ItExpr.IsAny<CancellationToken>())
                 .ReturnsAsync(httpResponseMessage);
+
+            responseValidator.Setup(validator => validator.ValidateAsync(httpResponseMessage))
+                .ThrowsAsync(new InternalServerErrorException($"Internal Server Error: {errorMessage}"));
 
             //act & assert
             var exception = await Assert.ThrowsExceptionAsync<InternalServerErrorException>(
@@ -639,12 +683,15 @@ namespace Task12.BLL.Test.Service
                     ItExpr.IsAny<CancellationToken>())
                 .ReturnsAsync(httpResponseMessage);
 
+            responseValidator.Setup(validator => validator.ValidateAsync(httpResponseMessage))
+                .ThrowsAsync(new HttpRequestException($"Error: {errorMessage}"));
+
             //act & assert
             var exception = await Assert.ThrowsExceptionAsync<HttpRequestException>(
                 () => service.DeleteTransactionsType(id, token)
             );
 
-            Assert.IsTrue(exception.Message.Contains("Error: ServiceUnavailable"));
+            Assert.IsTrue(exception.Message.Contains($"Error: {errorMessage}"));
             Assert.IsTrue(exception.Message.Contains(errorMessage));
         }
     }

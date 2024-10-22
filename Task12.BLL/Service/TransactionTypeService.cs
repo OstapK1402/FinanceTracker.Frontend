@@ -3,6 +3,7 @@ using System.Net.Http.Json;
 using System.Text;
 using Task12.BLL.DTO;
 using Task12.BLL.Helpers;
+using Task12.BLL.Interface;
 using Task12.BLL.IService;
 
 namespace Task12.BLL.Service
@@ -10,9 +11,9 @@ namespace Task12.BLL.Service
     public class TransactionTypeService : ITransactionTypeService
     {
         private readonly HttpClient _httpClient;
-        private readonly HttpResponseValidator _responseValidator;
+        private readonly IHttpResponseValidator _responseValidator;
 
-        public TransactionTypeService(HttpClient httpClient, HttpResponseValidator responseValidator)
+        public TransactionTypeService(HttpClient httpClient, IHttpResponseValidator responseValidator)
         {
             _httpClient = httpClient;
             _responseValidator = responseValidator;
