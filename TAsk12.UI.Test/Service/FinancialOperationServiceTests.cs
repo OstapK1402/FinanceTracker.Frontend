@@ -1,4 +1,5 @@
 ﻿using Moq;
+using Task12.BLL.Helpers;
 
 namespace Task12.BLL.Service.Tests
 {
@@ -7,6 +8,7 @@ namespace Task12.BLL.Service.Tests
     {
         private CancellationToken token;
         private Mock<HttpMessageHandler> httpMessageHandler;
+        private Mock<HttpResponseValidator> responseValidator;
         private HttpClient httpClient;
         private FinancialOperationService service;
 
@@ -15,11 +17,12 @@ namespace Task12.BLL.Service.Tests
         {
             token = CancellationToken.None;
             httpMessageHandler = new Mock<HttpMessageHandler>();
+            responseValidator = new Mock<HttpResponseValidator>();
             httpClient = new HttpClient(httpMessageHandler.Object)
             {
                 BaseAddress = new Uri("http://localhost")
             };
-            service = new FinancialOperationService(httpClient);
+            service = new FinancialOperationService(httpClient, responseValidator.Object);
         }
 
         //[TestMethod()]

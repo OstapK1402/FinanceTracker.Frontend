@@ -1,5 +1,6 @@
 ﻿using System.Net.Http.Json;
 using Task12.BLL.DTO;
+using Task12.BLL.Helpers;
 using Task12.BLL.IService;
 
 namespace Task12.BLL.Service
@@ -7,10 +8,12 @@ namespace Task12.BLL.Service
     public class ReportService : IReportService
     {
         private readonly HttpClient _httpClient;
+        private readonly HttpResponseValidator _responseValidator;
 
-        public ReportService(HttpClient httpClient) 
+        public ReportService(HttpClient httpClient, HttpResponseValidator responseValidator) 
         {
             _httpClient = httpClient;
+            _responseValidator = responseValidator;
         }
 
         public async Task<DailyReport> GetReportByDate(DateTime date, CancellationToken token)
@@ -19,44 +22,20 @@ namespace Task12.BLL.Service
 
             var response = await _httpClient.GetAsync($"/api/Report/{strDate}", token);
 
-            if (response.IsSuccessStatusCode)
-            {
-                var result = await response.Content.ReadFromJsonAsync<DailyReport>();
+            await _responseValidator.ValidateAsync(response);
 
-                return result;
-            }
-            else if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
-            {
-                var errorMessage = await response.Content.ReadAsStringAsync();
-                throw new InvalidOperationException($"Bad Request: {errorMessage}");
-            }
-            else
-            {
-                var errorMessage = await response.Content.ReadAsStringAsync();
-                throw new HttpRequestException($"Error: {response.StatusCode}, Message: {errorMessage}");
-            }
+            var result = await response.Content.ReadFromJsonAsync<DailyReport>();
+            return result;
         }
 
         public async Task<PeriodReport> GetReportByPeriod(DateTime startDate, DateTime endDate, CancellationToken token)
         {
             var response = await _httpClient.GetAsync($"/api/Report/by-period?startDate={startDate.Date}&endDate={endDate.Date}", token);
 
-            if (response.IsSuccessStatusCode)
-            {
-                var result = await response.Content.ReadFromJsonAsync<PeriodReport>();
+            await _responseValidator.ValidateAsync(response);
 
-                return result;
-            }
-            else if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
-            {
-                var errorMessage = await response.Content.ReadAsStringAsync();
-                throw new InvalidOperationException($"Bad Request: {errorMessage}");
-            }
-            else
-            {
-                var errorMessage = await response.Content.ReadAsStringAsync();
-                throw new HttpRequestException($"Error: {response.StatusCode}, Message: {errorMessage}");
-            }
+            var result = await response.Content.ReadFromJsonAsync<PeriodReport>();
+            return result;
         }
     }
 }

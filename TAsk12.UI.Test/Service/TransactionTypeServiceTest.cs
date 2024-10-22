@@ -71,7 +71,7 @@ namespace Task12.BLL.Test.Service
         //    var errorMessage = "Server error occurred";
         //    var httpResponseMessage = new HttpResponseMessage
         //    {
-        //        StatusCode = HttpStatusCode.InternalServerError,
+        //        StatusCode = HttpStatusCode.BadGateway,
         //        Content = new StringContent(errorMessage)
         //    };
 
@@ -87,7 +87,7 @@ namespace Task12.BLL.Test.Service
         //        () => service.GetAllTransactionsTypes(token)
         //    );
 
-        //    //Assert.IsTrue(exception.Message.Contains($"Error: 500, Message: {errorMessage}"));
+        //    Assert.IsTrue(exception.Message.Contains($"Error: 502, Message: {errorMessage}"));
         //    Assert.IsTrue(exception.Message.Contains(errorMessage));
         //}
 
@@ -162,7 +162,7 @@ namespace Task12.BLL.Test.Service
         //    var errorMessage = "Server error occurred";
         //    var httpResponseMessage = new HttpResponseMessage
         //    {
-        //        StatusCode = HttpStatusCode.InternalServerError,
+        //        StatusCode = HttpStatusCode.BadGateway,
         //        Content = new StringContent(errorMessage)
         //    };
 
@@ -178,7 +178,7 @@ namespace Task12.BLL.Test.Service
         //        () => service.GetTransactionsTypeById(id, token)
         //    );
 
-        //    Assert.IsTrue(exception.Message.Contains("Error: InternalServerError"));
+        //    Assert.IsTrue(exception.Message.Contains($"Error: 502, Message: {errorMessage}"));
         //    Assert.IsTrue(exception.Message.Contains(errorMessage));
         //}
 
