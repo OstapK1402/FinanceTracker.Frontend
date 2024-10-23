@@ -106,7 +106,6 @@ else
                     <div class="modal-body">
                         <EditForm Model="financialOperation" OnValidSubmit="CreateOperation">
                             <DataAnnotationsValidator />
-                            <ValidationSummary />
                             <div class="mb-3">
                                 <label for="amount" class="form-label">Amount</label>
                                 <InputNumber class="form-control" id="amount" @bind-Value="financialOperation.Amount"/>
@@ -134,8 +133,9 @@ else
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" @onclick="HideCreateModal">Cancel</button>
-                                <button type="button" class="btn btn-primary">Save Transaction Type</button>
+                                <button type="submit" class="btn btn-primary" >Save Transaction Type</button>
                             </div>
+                           <ValidationSummary />
                         </EditForm>
                     </div>
                 </div>

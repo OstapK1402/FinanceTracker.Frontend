@@ -3,24 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\ostap\\source\\repos\\Task12\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D3304647-D242-4A5D-8ACB-880FEB278FBE}|TAsk12.UI.Test\\Task12.BLL.Test.csproj|c:\\users\\ostap\\source\\repos\\task12\\task12.ui.test\\service\\transactiontypeservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D3304647-D242-4A5D-8ACB-880FEB278FBE}|TAsk12.UI.Test\\Task12.BLL.Test.csproj|solutionrelative:task12.ui.test\\service\\transactiontypeservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C5D309F7-4AC1-4C17-B2AE-C285F39B8AC0}|Task12.BLL\\Task12.BLL.csproj|c:\\users\\ostap\\source\\repos\\task12\\task12.bll\\dto\\financialoperationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5D309F7-4AC1-4C17-B2AE-C285F39B8AC0}|Task12.BLL\\Task12.BLL.csproj|solutionrelative:task12.bll\\dto\\financialoperationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C5D309F7-4AC1-4C17-B2AE-C285F39B8AC0}|Task12.BLL\\Task12.BLL.csproj|c:\\users\\ostap\\source\\repos\\task12\\task12.bll\\service\\transactiontypeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C5D309F7-4AC1-4C17-B2AE-C285F39B8AC0}|Task12.BLL\\Task12.BLL.csproj|solutionrelative:task12.bll\\service\\transactiontypeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C5D309F7-4AC1-4C17-B2AE-C285F39B8AC0}|Task12.BLL\\Task12.BLL.csproj|c:\\users\\ostap\\source\\repos\\task12\\task12.bll\\dto\\transactionstypedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5D309F7-4AC1-4C17-B2AE-C285F39B8AC0}|Task12.BLL\\Task12.BLL.csproj|solutionrelative:task12.bll\\dto\\transactionstypedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A689F418-9A4C-4447-A6C5-356FC7AE1010}|Task12\\Task12.csproj|c:\\users\\ostap\\source\\repos\\task12\\task12\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A689F418-9A4C-4447-A6C5-356FC7AE1010}|Task12\\Task12.csproj|solutionrelative:task12\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5D309F7-4AC1-4C17-B2AE-C285F39B8AC0}|Task12.BLL\\Task12.BLL.csproj|c:\\users\\ostap\\source\\repos\\task12\\task12.bll\\service\\financialoperationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5D309F7-4AC1-4C17-B2AE-C285F39B8AC0}|Task12.BLL\\Task12.BLL.csproj|solutionrelative:task12.bll\\service\\financialoperationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C5D309F7-4AC1-4C17-B2AE-C285F39B8AC0}|Task12.BLL\\Task12.BLL.csproj|c:\\users\\ostap\\source\\repos\\task12\\task12.bll\\helpers\\httpresponsevalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C5D309F7-4AC1-4C17-B2AE-C285F39B8AC0}|Task12.BLL\\Task12.BLL.csproj|solutionrelative:task12.bll\\helpers\\httpresponsevalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C5D309F7-4AC1-4C17-B2AE-C285F39B8AC0}|Task12.BLL\\Task12.BLL.csproj|c:\\users\\ostap\\source\\repos\\task12\\task12.bll\\interface\\ihttpresponsevalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C5D309F7-4AC1-4C17-B2AE-C285F39B8AC0}|Task12.BLL\\Task12.BLL.csproj|solutionrelative:task12.bll\\interface\\ihttpresponsevalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C5D309F7-4AC1-4C17-B2AE-C285F39B8AC0}|Task12.BLL\\Task12.BLL.csproj|c:\\users\\ostap\\source\\repos\\task12\\task12.bll\\service\\transactiontypeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5D309F7-4AC1-4C17-B2AE-C285F39B8AC0}|Task12.BLL\\Task12.BLL.csproj|solutionrelative:task12.bll\\service\\transactiontypeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C5D309F7-4AC1-4C17-B2AE-C285F39B8AC0}|Task12.BLL\\Task12.BLL.csproj|c:\\users\\ostap\\source\\repos\\task12\\task12.bll\\service\\financialoperationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C5D309F7-4AC1-4C17-B2AE-C285F39B8AC0}|Task12.BLL\\Task12.BLL.csproj|solutionrelative:task12.bll\\service\\financialoperationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A689F418-9A4C-4447-A6C5-356FC7AE1010}|Task12\\Task12.csproj|c:\\users\\ostap\\source\\repos\\task12\\task12\\pages\\transactionstypes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A689F418-9A4C-4447-A6C5-356FC7AE1010}|Task12\\Task12.csproj|solutionrelative:task12\\pages\\transactionstypes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5D309F7-4AC1-4C17-B2AE-C285F39B8AC0}|Task12.BLL\\Task12.BLL.csproj|c:\\users\\ostap\\source\\repos\\task12\\task12.bll\\exceptions\\exceptionhandlingmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5D309F7-4AC1-4C17-B2AE-C285F39B8AC0}|Task12.BLL\\Task12.BLL.csproj|solutionrelative:task12.bll\\exceptions\\exceptionhandlingmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5D309F7-4AC1-4C17-B2AE-C285F39B8AC0}|Task12.BLL\\Task12.BLL.csproj|c:\\users\\ostap\\source\\repos\\task12\\task12.bll\\exceptions\\notfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5D309F7-4AC1-4C17-B2AE-C285F39B8AC0}|Task12.BLL\\Task12.BLL.csproj|solutionrelative:task12.bll\\exceptions\\notfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C5D309F7-4AC1-4C17-B2AE-C285F39B8AC0}|Task12.BLL\\Task12.BLL.csproj|c:\\users\\ostap\\source\\repos\\task12\\task12.bll\\extensions\\servicecollectionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -31,48 +47,32 @@
       "RelativeMoniker": "D:0:0:{C5D309F7-4AC1-4C17-B2AE-C285F39B8AC0}|Task12.BLL\\Task12.BLL.csproj|solutionrelative:task12.bll\\service\\reportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{A689F418-9A4C-4447-A6C5-356FC7AE1010}|Task12\\Task12.csproj|c:\\users\\ostap\\source\\repos\\task12\\task12\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A689F418-9A4C-4447-A6C5-356FC7AE1010}|Task12\\Task12.csproj|solutionrelative:task12\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5D309F7-4AC1-4C17-B2AE-C285F39B8AC0}|Task12.BLL\\Task12.BLL.csproj|c:\\users\\ostap\\source\\repos\\task12\\task12.bll\\interface\\ihttpresponsevalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5D309F7-4AC1-4C17-B2AE-C285F39B8AC0}|Task12.BLL\\Task12.BLL.csproj|solutionrelative:task12.bll\\interface\\ihttpresponsevalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D3304647-D242-4A5D-8ACB-880FEB278FBE}|TAsk12.UI.Test\\Task12.BLL.Test.csproj|c:\\users\\ostap\\source\\repos\\task12\\task12.ui.test\\service\\financialoperationservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D3304647-D242-4A5D-8ACB-880FEB278FBE}|TAsk12.UI.Test\\Task12.BLL.Test.csproj|solutionrelative:task12.ui.test\\service\\financialoperationservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C5D309F7-4AC1-4C17-B2AE-C285F39B8AC0}|Task12.BLL\\Task12.BLL.csproj|c:\\users\\ostap\\source\\repos\\task12\\task12.bll\\exceptions\\exceptionhandlingmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C5D309F7-4AC1-4C17-B2AE-C285F39B8AC0}|Task12.BLL\\Task12.BLL.csproj|solutionrelative:task12.bll\\exceptions\\exceptionhandlingmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D3304647-D242-4A5D-8ACB-880FEB278FBE}|TAsk12.UI.Test\\Task12.BLL.Test.csproj|c:\\users\\ostap\\source\\repos\\task12\\task12.ui.test\\service\\transactiontypeservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3304647-D242-4A5D-8ACB-880FEB278FBE}|TAsk12.UI.Test\\Task12.BLL.Test.csproj|solutionrelative:task12.ui.test\\service\\transactiontypeservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D3304647-D242-4A5D-8ACB-880FEB278FBE}|TAsk12.UI.Test\\Task12.BLL.Test.csproj|c:\\users\\ostap\\source\\repos\\task12\\task12.ui.test\\task12.bll.test.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{D3304647-D242-4A5D-8ACB-880FEB278FBE}|TAsk12.UI.Test\\Task12.BLL.Test.csproj|solutionrelative:task12.ui.test\\task12.bll.test.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A689F418-9A4C-4447-A6C5-356FC7AE1010}|Task12\\Task12.csproj|c:\\users\\ostap\\source\\repos\\task12\\task12\\pages\\transactionstypes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A689F418-9A4C-4447-A6C5-356FC7AE1010}|Task12\\Task12.csproj|solutionrelative:task12\\pages\\transactionstypes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A689F418-9A4C-4447-A6C5-356FC7AE1010}|Task12\\Task12.csproj|c:\\users\\ostap\\source\\repos\\task12\\task12\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A689F418-9A4C-4447-A6C5-356FC7AE1010}|Task12\\Task12.csproj|solutionrelative:task12\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A689F418-9A4C-4447-A6C5-356FC7AE1010}|Task12\\Task12.csproj|c:\\users\\ostap\\source\\repos\\task12\\task12\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A689F418-9A4C-4447-A6C5-356FC7AE1010}|Task12\\Task12.csproj|solutionrelative:task12\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A689F418-9A4C-4447-A6C5-356FC7AE1010}|Task12\\Task12.csproj|c:\\users\\ostap\\source\\repos\\task12\\task12\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A689F418-9A4C-4447-A6C5-356FC7AE1010}|Task12\\Task12.csproj|solutionrelative:task12\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A689F418-9A4C-4447-A6C5-356FC7AE1010}|Task12\\Task12.csproj|c:\\users\\ostap\\source\\repos\\task12\\task12\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{A689F418-9A4C-4447-A6C5-356FC7AE1010}|Task12\\Task12.csproj|solutionrelative:task12\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C5D309F7-4AC1-4C17-B2AE-C285F39B8AC0}|Task12.BLL\\Task12.BLL.csproj|c:\\users\\ostap\\source\\repos\\task12\\task12.bll\\exceptions\\notfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C5D309F7-4AC1-4C17-B2AE-C285F39B8AC0}|Task12.BLL\\Task12.BLL.csproj|solutionrelative:task12.bll\\exceptions\\notfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C5D309F7-4AC1-4C17-B2AE-C285F39B8AC0}|Task12.BLL\\Task12.BLL.csproj|c:\\users\\ostap\\source\\repos\\task12\\task12.bll\\dto\\transactionstypedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C5D309F7-4AC1-4C17-B2AE-C285F39B8AC0}|Task12.BLL\\Task12.BLL.csproj|solutionrelative:task12.bll\\dto\\transactionstypedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C5D309F7-4AC1-4C17-B2AE-C285F39B8AC0}|Task12.BLL\\Task12.BLL.csproj|c:\\users\\ostap\\source\\repos\\task12\\task12.bll\\dto\\financialoperationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C5D309F7-4AC1-4C17-B2AE-C285F39B8AC0}|Task12.BLL\\Task12.BLL.csproj|solutionrelative:task12.bll\\dto\\financialoperationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A689F418-9A4C-4447-A6C5-356FC7AE1010}|Task12\\Task12.csproj|c:\\users\\ostap\\source\\repos\\task12\\task12\\pages\\periodreport.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -165,7 +165,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -173,33 +173,176 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "TransactionTypeServiceTest.cs",
-              "DocumentMoniker": "C:\\Users\\ostap\\source\\repos\\Task12\\TAsk12.UI.Test\\Service\\TransactionTypeServiceTest.cs",
-              "RelativeDocumentMoniker": "TAsk12.UI.Test\\Service\\TransactionTypeServiceTest.cs",
-              "ToolTip": "C:\\Users\\ostap\\source\\repos\\Task12\\TAsk12.UI.Test\\Service\\TransactionTypeServiceTest.cs",
-              "RelativeToolTip": "TAsk12.UI.Test\\Service\\TransactionTypeServiceTest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAKYCAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-18T08:56:32.324Z",
+              "DocumentIndex": 2,
+              "Title": "Index.razor",
+              "DocumentMoniker": "C:\\Users\\ostap\\source\\repos\\Task12\\Task12\\Pages\\Index.razor",
+              "RelativeDocumentMoniker": "Task12\\Pages\\Index.razor",
+              "ToolTip": "C:\\Users\\ostap\\source\\repos\\Task12\\Task12\\Pages\\Index.razor",
+              "RelativeToolTip": "Task12\\Pages\\Index.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-05T17:03:06.905Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
+              "Title": "HttpResponseValidator.cs",
+              "DocumentMoniker": "C:\\Users\\ostap\\source\\repos\\Task12\\Task12.BLL\\Helpers\\HttpResponseValidator.cs",
+              "RelativeDocumentMoniker": "Task12.BLL\\Helpers\\HttpResponseValidator.cs",
+              "ToolTip": "C:\\Users\\ostap\\source\\repos\\Task12\\Task12.BLL\\Helpers\\HttpResponseValidator.cs",
+              "RelativeToolTip": "Task12.BLL\\Helpers\\HttpResponseValidator.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAA+wCcAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T09:56:49.658Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FinancialOperationService.cs",
+              "DocumentMoniker": "C:\\Users\\ostap\\source\\repos\\Task12\\Task12.BLL\\Service\\FinancialOperationService.cs",
+              "RelativeDocumentMoniker": "Task12.BLL\\Service\\FinancialOperationService.cs",
+              "ToolTip": "C:\\Users\\ostap\\source\\repos\\Task12\\Task12.BLL\\Service\\FinancialOperationService.cs",
+              "RelativeToolTip": "Task12.BLL\\Service\\FinancialOperationService.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAB4AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-18T12:15:27.255Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "TransactionTypeService.cs",
               "DocumentMoniker": "C:\\Users\\ostap\\source\\repos\\Task12\\Task12.BLL\\Service\\TransactionTypeService.cs",
               "RelativeDocumentMoniker": "Task12.BLL\\Service\\TransactionTypeService.cs",
               "ToolTip": "C:\\Users\\ostap\\source\\repos\\Task12\\Task12.BLL\\Service\\TransactionTypeService.cs",
               "RelativeToolTip": "Task12.BLL\\Service\\TransactionTypeService.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAswCcAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAABQAAAAAAAAAAAAgwCoAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-18T12:15:07.781Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
+              "Title": "TransactionsTypeDTO.cs",
+              "DocumentMoniker": "C:\\Users\\ostap\\source\\repos\\Task12\\Task12.BLL\\DTO\\TransactionsTypeDTO.cs",
+              "RelativeDocumentMoniker": "Task12.BLL\\DTO\\TransactionsTypeDTO.cs",
+              "ToolTip": "C:\\Users\\ostap\\source\\repos\\Task12\\Task12.BLL\\DTO\\TransactionsTypeDTO.cs",
+              "RelativeToolTip": "Task12.BLL\\DTO\\TransactionsTypeDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-18T12:07:31.75Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FinancialOperationDTO.cs",
+              "DocumentMoniker": "C:\\Users\\ostap\\source\\repos\\Task12\\Task12.BLL\\DTO\\FinancialOperationDTO.cs",
+              "RelativeDocumentMoniker": "Task12.BLL\\DTO\\FinancialOperationDTO.cs",
+              "ToolTip": "C:\\Users\\ostap\\source\\repos\\Task12\\Task12.BLL\\DTO\\FinancialOperationDTO.cs",
+              "RelativeToolTip": "Task12.BLL\\DTO\\FinancialOperationDTO.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-18T12:07:44.579Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ExceptionHandlingMiddleware.cs",
+              "DocumentMoniker": "C:\\Users\\ostap\\source\\repos\\Task12\\Task12.BLL\\Exceptions\\ExceptionHandlingMiddleware.cs",
+              "RelativeDocumentMoniker": "Task12.BLL\\Exceptions\\ExceptionHandlingMiddleware.cs",
+              "ToolTip": "C:\\Users\\ostap\\source\\repos\\Task12\\Task12.BLL\\Exceptions\\ExceptionHandlingMiddleware.cs",
+              "RelativeToolTip": "Task12.BLL\\Exceptions\\ExceptionHandlingMiddleware.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwA8AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-21T15:55:45.265Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "NotFoundException.cs",
+              "DocumentMoniker": "C:\\Users\\ostap\\source\\repos\\Task12\\Task12.BLL\\Exceptions\\NotFoundException.cs",
+              "RelativeDocumentMoniker": "Task12.BLL\\Exceptions\\NotFoundException.cs",
+              "ToolTip": "C:\\Users\\ostap\\source\\repos\\Task12\\Task12.BLL\\Exceptions\\NotFoundException.cs",
+              "RelativeToolTip": "Task12.BLL\\Exceptions\\NotFoundException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-21T15:32:29.636Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TransactionsTypes.razor",
+              "DocumentMoniker": "C:\\Users\\ostap\\source\\repos\\Task12\\Task12\\Pages\\TransactionsTypes.razor",
+              "RelativeDocumentMoniker": "Task12\\Pages\\TransactionsTypes.razor",
+              "ToolTip": "C:\\Users\\ostap\\source\\repos\\Task12\\Task12\\Pages\\TransactionsTypes.razor",
+              "RelativeToolTip": "Task12\\Pages\\TransactionsTypes.razor",
+              "ViewState": "AgIAAFoAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-29T12:39:45.28Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ServiceCollectionExtensions.cs",
+              "DocumentMoniker": "C:\\Users\\ostap\\source\\repos\\Task12\\Task12.BLL\\Extensions\\ServiceCollectionExtensions.cs",
+              "RelativeDocumentMoniker": "Task12.BLL\\Extensions\\ServiceCollectionExtensions.cs",
+              "ToolTip": "C:\\Users\\ostap\\source\\repos\\Task12\\Task12.BLL\\Extensions\\ServiceCollectionExtensions.cs",
+              "RelativeToolTip": "Task12.BLL\\Extensions\\ServiceCollectionExtensions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-18T12:26:31.146Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "FinancialOperationServiceTests.cs",
+              "DocumentMoniker": "C:\\Users\\ostap\\source\\repos\\Task12\\TAsk12.UI.Test\\Service\\FinancialOperationServiceTests.cs",
+              "RelativeDocumentMoniker": "TAsk12.UI.Test\\Service\\FinancialOperationServiceTests.cs",
+              "ToolTip": "C:\\Users\\ostap\\source\\repos\\Task12\\TAsk12.UI.Test\\Service\\FinancialOperationServiceTests.cs",
+              "RelativeToolTip": "TAsk12.UI.Test\\Service\\FinancialOperationServiceTests.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwBgAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-18T13:59:41.719Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ReportService.cs",
+              "DocumentMoniker": "C:\\Users\\ostap\\source\\repos\\Task12\\Task12.BLL\\Service\\ReportService.cs",
+              "RelativeDocumentMoniker": "Task12.BLL\\Service\\ReportService.cs",
+              "ToolTip": "C:\\Users\\ostap\\source\\repos\\Task12\\Task12.BLL\\Service\\ReportService.cs",
+              "RelativeToolTip": "Task12.BLL\\Service\\ReportService.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-18T12:15:14.769Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\ostap\\source\\repos\\Task12\\Task12\\Program.cs",
+              "RelativeDocumentMoniker": "Task12\\Program.cs",
+              "ToolTip": "C:\\Users\\ostap\\source\\repos\\Task12\\Task12\\Program.cs",
+              "RelativeToolTip": "Task12\\Program.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAQwBQAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-25T10:42:50.542Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "IHttpResponseValidator.cs",
               "DocumentMoniker": "C:\\Users\\ostap\\source\\repos\\Task12\\Task12.BLL\\Interface\\IHttpResponseValidator.cs",
               "RelativeDocumentMoniker": "Task12.BLL\\Interface\\IHttpResponseValidator.cs",
@@ -212,85 +355,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "HttpResponseValidator.cs",
-              "DocumentMoniker": "C:\\Users\\ostap\\source\\repos\\Task12\\Task12.BLL\\Helpers\\HttpResponseValidator.cs",
-              "RelativeDocumentMoniker": "Task12.BLL\\Helpers\\HttpResponseValidator.cs",
-              "ToolTip": "C:\\Users\\ostap\\source\\repos\\Task12\\Task12.BLL\\Helpers\\HttpResponseValidator.cs",
-              "RelativeToolTip": "Task12.BLL\\Helpers\\HttpResponseValidator.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAQwBgAAABMAAAAAAAAAA==",
+              "DocumentIndex": 14,
+              "Title": "TransactionTypeServiceTest.cs",
+              "DocumentMoniker": "C:\\Users\\ostap\\source\\repos\\Task12\\TAsk12.UI.Test\\Service\\TransactionTypeServiceTest.cs",
+              "RelativeDocumentMoniker": "TAsk12.UI.Test\\Service\\TransactionTypeServiceTest.cs",
+              "ToolTip": "C:\\Users\\ostap\\source\\repos\\Task12\\TAsk12.UI.Test\\Service\\TransactionTypeServiceTest.cs",
+              "RelativeToolTip": "TAsk12.UI.Test\\Service\\TransactionTypeServiceTest.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAKYCAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T09:56:49.658Z",
+              "WhenOpened": "2024-10-18T08:56:32.324Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "FinancialOperationService.cs",
-              "DocumentMoniker": "C:\\Users\\ostap\\source\\repos\\Task12\\Task12.BLL\\Service\\FinancialOperationService.cs",
-              "RelativeDocumentMoniker": "Task12.BLL\\Service\\FinancialOperationService.cs",
-              "ToolTip": "C:\\Users\\ostap\\source\\repos\\Task12\\Task12.BLL\\Service\\FinancialOperationService.cs",
-              "RelativeToolTip": "Task12.BLL\\Service\\FinancialOperationService.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAEAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-18T12:15:27.255Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ServiceCollectionExtensions.cs",
-              "DocumentMoniker": "C:\\Users\\ostap\\source\\repos\\Task12\\Task12.BLL\\Extensions\\ServiceCollectionExtensions.cs",
-              "RelativeDocumentMoniker": "Task12.BLL\\Extensions\\ServiceCollectionExtensions.cs",
-              "ToolTip": "C:\\Users\\ostap\\source\\repos\\Task12\\Task12.BLL\\Extensions\\ServiceCollectionExtensions.cs",
-              "RelativeToolTip": "Task12.BLL\\Extensions\\ServiceCollectionExtensions.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-18T12:26:31.146Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ReportService.cs",
-              "DocumentMoniker": "C:\\Users\\ostap\\source\\repos\\Task12\\Task12.BLL\\Service\\ReportService.cs",
-              "RelativeDocumentMoniker": "Task12.BLL\\Service\\ReportService.cs",
-              "ToolTip": "C:\\Users\\ostap\\source\\repos\\Task12\\Task12.BLL\\Service\\ReportService.cs",
-              "RelativeToolTip": "Task12.BLL\\Service\\ReportService.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-18T12:15:14.769Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "FinancialOperationServiceTests.cs",
-              "DocumentMoniker": "C:\\Users\\ostap\\source\\repos\\Task12\\TAsk12.UI.Test\\Service\\FinancialOperationServiceTests.cs",
-              "RelativeDocumentMoniker": "TAsk12.UI.Test\\Service\\FinancialOperationServiceTests.cs",
-              "ToolTip": "C:\\Users\\ostap\\source\\repos\\Task12\\TAsk12.UI.Test\\Service\\FinancialOperationServiceTests.cs",
-              "RelativeToolTip": "TAsk12.UI.Test\\Service\\FinancialOperationServiceTests.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-18T13:59:41.719Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ExceptionHandlingMiddleware.cs",
-              "DocumentMoniker": "C:\\Users\\ostap\\source\\repos\\Task12\\Task12.BLL\\Exceptions\\ExceptionHandlingMiddleware.cs",
-              "RelativeDocumentMoniker": "Task12.BLL\\Exceptions\\ExceptionHandlingMiddleware.cs",
-              "ToolTip": "C:\\Users\\ostap\\source\\repos\\Task12\\Task12.BLL\\Exceptions\\ExceptionHandlingMiddleware.cs",
-              "RelativeToolTip": "Task12.BLL\\Exceptions\\ExceptionHandlingMiddleware.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAQwBIAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-21T15:55:45.265Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 15,
               "Title": "Task12.BLL.Test.csproj",
               "DocumentMoniker": "C:\\Users\\ostap\\source\\repos\\Task12\\TAsk12.UI.Test\\Task12.BLL.Test.csproj",
               "RelativeDocumentMoniker": "TAsk12.UI.Test\\Task12.BLL.Test.csproj",
@@ -302,19 +380,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "NotFoundException.cs",
-              "DocumentMoniker": "C:\\Users\\ostap\\source\\repos\\Task12\\Task12.BLL\\Exceptions\\NotFoundException.cs",
-              "RelativeDocumentMoniker": "Task12.BLL\\Exceptions\\NotFoundException.cs",
-              "ToolTip": "C:\\Users\\ostap\\source\\repos\\Task12\\Task12.BLL\\Exceptions\\NotFoundException.cs",
-              "RelativeToolTip": "Task12.BLL\\Exceptions\\NotFoundException.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-21T15:32:29.636Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 16,
               "Title": "_Imports.razor",
               "DocumentMoniker": "C:\\Users\\ostap\\source\\repos\\Task12\\Task12\\_Imports.razor",
               "RelativeDocumentMoniker": "Task12\\_Imports.razor",
@@ -326,44 +392,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Index.razor",
-              "DocumentMoniker": "C:\\Users\\ostap\\source\\repos\\Task12\\Task12\\Pages\\Index.razor",
-              "RelativeDocumentMoniker": "Task12\\Pages\\Index.razor",
-              "ToolTip": "C:\\Users\\ostap\\source\\repos\\Task12\\Task12\\Pages\\Index.razor",
-              "RelativeToolTip": "Task12\\Pages\\Index.razor",
-              "ViewState": "AgIAACEAAAAAAAAAAAAAAIUAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-05T17:03:06.905Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "TransactionsTypes.razor",
-              "DocumentMoniker": "C:\\Users\\ostap\\source\\repos\\Task12\\Task12\\Pages\\TransactionsTypes.razor",
-              "RelativeDocumentMoniker": "Task12\\Pages\\TransactionsTypes.razor",
-              "ToolTip": "C:\\Users\\ostap\\source\\repos\\Task12\\Task12\\Pages\\TransactionsTypes.razor",
-              "RelativeToolTip": "Task12\\Pages\\TransactionsTypes.razor",
-              "ViewState": "AgIAAMsAAAAAAAAAAAAYwMsAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-29T12:39:45.28Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\ostap\\source\\repos\\Task12\\Task12\\Program.cs",
-              "RelativeDocumentMoniker": "Task12\\Program.cs",
-              "ToolTip": "C:\\Users\\ostap\\source\\repos\\Task12\\Task12\\Program.cs",
-              "RelativeToolTip": "Task12\\Program.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAwBIAAABCAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-25T10:42:50.542Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 17,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\ostap\\source\\repos\\Task12\\Task12\\appsettings.json",
               "RelativeDocumentMoniker": "Task12\\appsettings.json",
@@ -372,30 +401,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2024-10-05T09:54:19.065Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "TransactionsTypeDTO.cs",
-              "DocumentMoniker": "C:\\Users\\ostap\\source\\repos\\Task12\\Task12.BLL\\DTO\\TransactionsTypeDTO.cs",
-              "RelativeDocumentMoniker": "Task12.BLL\\DTO\\TransactionsTypeDTO.cs",
-              "ToolTip": "C:\\Users\\ostap\\source\\repos\\Task12\\Task12.BLL\\DTO\\TransactionsTypeDTO.cs",
-              "RelativeToolTip": "Task12.BLL\\DTO\\TransactionsTypeDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-18T12:07:31.75Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "FinancialOperationDTO.cs",
-              "DocumentMoniker": "C:\\Users\\ostap\\source\\repos\\Task12\\Task12.BLL\\DTO\\FinancialOperationDTO.cs",
-              "RelativeDocumentMoniker": "Task12.BLL\\DTO\\FinancialOperationDTO.cs",
-              "ToolTip": "C:\\Users\\ostap\\source\\repos\\Task12\\Task12.BLL\\DTO\\FinancialOperationDTO.cs",
-              "RelativeToolTip": "Task12.BLL\\DTO\\FinancialOperationDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-18T12:07:44.579Z"
             },
             {
               "$type": "Document",

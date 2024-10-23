@@ -1,6 +1,6 @@
 ﻿using System.Net.Http.Json;
 using Task12.BLL.DTO;
-using Task12.BLL.Helpers;
+using Task12.BLL.Interface;
 using Task12.BLL.IService;
 
 namespace Task12.BLL.Service
@@ -8,9 +8,9 @@ namespace Task12.BLL.Service
     public class ReportService : IReportService
     {
         private readonly HttpClient _httpClient;
-        private readonly HttpResponseValidator _responseValidator;
+        private readonly IHttpResponseValidator _responseValidator;
 
-        public ReportService(HttpClient httpClient, HttpResponseValidator responseValidator) 
+        public ReportService(HttpClient httpClient, IHttpResponseValidator responseValidator) 
         {
             _httpClient = httpClient;
             _responseValidator = responseValidator;

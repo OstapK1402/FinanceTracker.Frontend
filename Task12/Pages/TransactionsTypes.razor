@@ -92,7 +92,6 @@ else
                     <div class="modal-body">
                         <EditForm Model="@typeDTO" OnValidSubmit="CreateType" >
                             <DataAnnotationsValidator />
-                            <ValidationSummary />
                             <div class="mb-3">
                                 <label for="typeName" class="form-label">Transactions Type Name</label>
                                 <InputText class="form-control" id="typeName" placeholder="Enter name" @bind-Value="typeDTO.Name" />
@@ -112,8 +111,9 @@ else
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" @onclick="HideCreateModal">Cancel</button>
-                                <button type="button" class="btn btn-primary" @onclick="CreateType">Save Transaction Type</button>
+                                <button type="submit" class="btn btn-primary">Save Transaction Type</button>
                             </div>
+                            <ValidationSummary />
                         </EditForm>
                     </div>
                 </div>

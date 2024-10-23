@@ -13,11 +13,11 @@ namespace Task12.BLL.DTO
         [Range(typeof(DateTime), "2000-01-01", "2050-01-01", ErrorMessage = "The Operation Date is out of range")]
         public DateTime OperationDate { get; set; }
 
-        [Required(ErrorMessage = "The Transactions Type Id is not filled")]
+        [Required(ErrorMessage = "The Transactions Type is not filled")]
         public int TransactionsTypeId { get; set; }
         public TransactionsTypeDTO? TransactionsType { get; set; }
 
-        [StringLength(300, ErrorMessage = "The Description length must be from 0 to 300 characters")]
+        [StringLength(300, MinimumLength = 3, ErrorMessage = "The Description length must be from 3 to 300 characters")]
         public string Description { get; set; }
     }
 }
