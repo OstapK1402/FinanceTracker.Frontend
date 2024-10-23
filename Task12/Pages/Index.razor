@@ -77,7 +77,7 @@ else
                                     </button>
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" @onclick="() => ShowUpdateModal(operation.OperationId)" type="button">Update</a></li>
-                                        <li><a class="dropdown-item text-danger" @onclick="() => DeleteOperation(operation.OperationId)" type="button">Delete</a></li>
+                                        <li><a class="dropdown-item text-danger" @onclick="() => ConfirmDelete(operation.OperationId)" type="button">Delete</a></li>
                                     </ul>
                                 </div>
                             </td>
@@ -160,33 +160,39 @@ else
                         <button type="button" class="btn-close" @onclick="HideUpdateModal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form>
+                        <EditForm Model="financialOperation" OnValidSubmit="UpdateOperation">
+                            <DataAnnotationsValidator />
                             <div class="mb-3">
                                 <label for="amount" class="form-label">Amount</label>
-                                <input type="number" class="form-control" id="amount" @bind="financialOperation.Amount">
+                                <InputNumber class="form-control" id="amount" @bind-Value="financialOperation.Amount" />
+                                <ValidationMessage For="@(() => financialOperation.Amount)" />
                             </div>
                             <div class="mb-3">
                                 <label for="date" class="form-label">Date</label>
-                                <input type="date" class="form-control" id="date" @bind="financialOperation.OperationDate">
+                                <InputDate class="form-control" id="date" @bind-Value="financialOperation.OperationDate"></InputDate>
+                                <ValidationMessage For="@(() => financialOperation.OperationDate)" />
                             </div>
                             <div class="mb-3">
                                 <label for="type" class="form-label">Transactions Type</label>
-                                <select id="type" class="form-select" placeholder="Select Transactions Type" @bind="financialOperation.TransactionsTypeId">
+                                <InputSelect class="form-select"  @bind-Value="financialOperation.TransactionsTypeId">
                                     @foreach (var item in types)
                                     {
                                         <option value="@item.TypeId">@item.Name</option>
                                     }
-                                </select>
+                                </InputSelect>
+                                <ValidationMessage For="@(() => financialOperation.TransactionsTypeId)" />
                             </div>
                             <div class="mb-3">
                                 <label for="description" class="form-label">Description</label>
-                                <input type="text" class="form-control" id="description" placeholder="Enter description" @bind="financialOperation.Description">
+                                <InputText class="form-control" id="description" placeholder="Enter description" @bind-Value="financialOperation.Description"></InputText>
+                                <ValidationMessage For="@(() => financialOperation.Description)" />
                             </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" @onclick="HideUpdateModal">Cancel</button>
-                        <button type="button" class="btn btn-primary" @onclick="UpdateOperation">Save Transaction Type</button>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" @onclick="HideUpdateModal">Cancel</button>
+                                <button type="submit" class="btn btn-primary">Save Transaction Type</button>
+                            </div>
+                            <ValidationSummary />
+                        </EditForm>
                     </div>
                 </div>
             </div>
@@ -336,4 +342,3 @@ else
         }
     }
 }
-
