@@ -1,0 +1,9 @@
+﻿.td-income {
+    color: limegreen !important;
+    /*font: bold;*/
+}
+
+.td-notIncome {
+    color: red !important;
+    /*font: bold;*/
+}
